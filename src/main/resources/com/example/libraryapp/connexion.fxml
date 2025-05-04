@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.HBox?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #554ccc;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.ConnexionController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="366.0" prefWidth="560.0" spacing="10" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+
+            <padding>
+                <Insets bottom="20.0" left="100.0" right="100.0" top="20.0" />
+            </padding>
+
+            <Label style="-fx-font-size: 18;" text="Connexion au système" textFill="#f0eb32">
+                <font>
+                    <Font name="System Bold" size="19.0" />
+                </font>
+            </Label>
+
+            <TextField fx:id="emailField" promptText="Email" />
+            <PasswordField fx:id="passwordField" promptText="Mot de passe" />
+
+            <HBox prefHeight="25.0" prefWidth="317.0">
+                <children>
+                    <Button onAction="#handleReturn" prefHeight="25.0" prefWidth="130.0"
+                            style="-fx-background-color: red; -fx-text-fill: white;" text="Annuler" textFill="#191b19">
+                    </Button>
+                    <Button layoutX="10.0" layoutY="10.0" onAction="#handleConnexion" prefHeight="25.0"
+                            prefWidth="130.0" style="-fx-background-color: #5bd211; -fx-text-fill: white;"
+                            text="Se connecter" textFill="#191b19">
+                        <HBox.margin>
+                            <Insets left="20.0"/>
+                        </HBox.margin>
+                    </Button>
+                </children>
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+            </HBox>
+
+            <Label fx:id="messageLabel" textFill="red" />
+        </VBox>
+    </children>
+</AnchorPane>

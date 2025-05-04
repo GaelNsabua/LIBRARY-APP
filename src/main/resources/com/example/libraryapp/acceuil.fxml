@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="486.0" prefWidth="600.0" style="-fx-background-color: #554ccc;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.AccueilController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="368.0" prefWidth="560.0" spacing="10" style="-fx-background-color: #554ccc;" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.topAnchor="40.0">
+         <ImageView fitHeight="118.0" fitWidth="136.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+               <Image url="@../../../images/book.png" />
+            </image>
+         </ImageView>
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="BIENVENU DANS LIBRARY-APP" textFill="#f5c70f">
+                <VBox.margin>
+                    <Insets bottom="20.0" top="5.0" />
+                </VBox.margin>
+                <font>
+                    <Font name="System Bold" size="19.0" />
+                </font>
+            </Label>
+            <Button maxHeight="1.7976931348623157E308" onAction="#handleSeConnecter" prefHeight="25.0" prefWidth="152.0" style="-fx-background-color: #5bd211; -fx-text-fill: white;" text="Se connecter" />
+            <Button onAction="#handleSinscrire" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: orange; -fx-text-fill: white;" text="S'inscrire" />
+            <Button onAction="#handleQuitter" prefHeight="25.0" prefWidth="153.0" style="-fx-background-color: red; -fx-text-fill: white;" text="Quitter" textFill="#1f1e1e" />
+        </VBox>
+    </children>
+</AnchorPane>
