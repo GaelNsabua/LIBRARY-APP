@@ -28,7 +28,7 @@
             <PasswordField fx:id="passwordField" promptText="Mot de passe" />
 
             <HBox prefHeight="25.0" prefWidth="317.0">
-                <children>
+                <children> 
                     <Button onAction="#handleReturn" prefHeight="25.0" prefWidth="130.0"
                             style="-fx-background-color: red; -fx-text-fill: white;" text="Annuler" textFill="#191b19">
                     </Button>
