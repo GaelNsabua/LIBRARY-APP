@@ -28,11 +28,11 @@ public class Authentification {
 
                 switch (role.toLowerCase()) {
                     case "admin":
-                        return new Admin(id, nom, email, motDePasse);
+                        return new Admin(id, nom, email, motDePasse, role);
                     case "bibliothecaire":
-                        return new Bibliothecaire(id, nom, email, motDePasse);
+                        return new Bibliothecaire(id, nom, email, motDePasse,role);
                     case "lecteur":
-                        return new Lecteur(id, nom, email, motDePasse);
+                        return new Lecteur(id, nom, email, motDePasse, role);
                     default:
                         return null;
                 }

@@ -31,4 +31,9 @@ public abstract class Livre {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+
+    @Override
+    public String toString() {
+        return titre + " (" + auteur + ")";
+    }
 }

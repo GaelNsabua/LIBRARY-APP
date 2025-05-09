@@ -44,33 +44,24 @@ public class EmpruntDao {
     }
 
 
-    public static void retournerLivre(int idEmprunt) {
-        String updateRetour = "UPDATE emprunts SET date_retour = ? WHERE id = ?";
-        String getLivreId = "SELECT id_livre FROM emprunts WHERE id = ?";
+    public static void retournerLivre(int idLivre) {
+        String updateRetour = "UPDATE emprunts SET date_retour = ? WHERE id_livre = ?";
         String majDispo = "UPDATE livres SET disponible = true WHERE id = ?";
 
-        try (Connection conn = DBConnection.getConnection();
-             PreparedStatement getStmt = conn.prepareStatement(getLivreId)) {
+        try (Connection conn = DBConnection.getConnection();) {
 
-            getStmt.setInt(1, idEmprunt);
-            ResultSet rs = getStmt.executeQuery();
+            try (
+                    PreparedStatement updateEmprunt = conn.prepareStatement(updateRetour);
+                    PreparedStatement updateLivre = conn.prepareStatement(majDispo)
+            ) {
+                updateEmprunt.setDate(1, Date.valueOf(LocalDate.now()));
+                updateEmprunt.setInt(2, idLivre);
+                updateEmprunt.executeUpdate();
 
-            if (rs.next()) {
-                int idLivre = rs.getInt("id_livre");
+                updateLivre.setInt(1, idLivre);
+                updateLivre.executeUpdate();
 
-                try (
-                        PreparedStatement updateEmprunt = conn.prepareStatement(updateRetour);
-                        PreparedStatement updateLivre = conn.prepareStatement(majDispo)
-                ) {
-                    updateEmprunt.setDate(1, Date.valueOf(LocalDate.now()));
-                    updateEmprunt.setInt(2, idEmprunt);
-                    updateEmprunt.executeUpdate();
-
-                    updateLivre.setInt(1, idLivre);
-                    updateLivre.executeUpdate();
-
-                    System.out.println("Livre retourné et remis en disponibilité.");
-                }
+                System.out.println("Livre retourné et remis en disponibilité.");
             }
 
         } catch (SQLException e) {
@@ -107,13 +98,13 @@ public class EmpruntDao {
 
     public static void afficherEmpruntsActifs() {
         String sql = """
-        SELECT e.id AS emprunt_id, l.id AS livre_id, l.titre, l.disponible,
-               u.nom, e.date_emprunt
-        FROM emprunts e
-        JOIN livres l ON e.id_livre = l.id
-        JOIN utilisateurs u ON e.id_utilisateur = u.id
-        WHERE e.date_retour IS NULL
-    """;
+                    SELECT e.id AS emprunt_id, l.id AS livre_id, l.titre, l.disponible,
+                           u.nom, e.date_emprunt
+                    FROM emprunts e
+                    JOIN livres l ON e.id_livre = l.id
+                    JOIN utilisateurs u ON e.id_utilisateur = u.id
+                    WHERE e.date_retour IS NULL
+                """;
 
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql);

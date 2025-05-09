@@ -6,30 +6,38 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="486.0" prefWidth="600.0" style="-fx-background-color: #554ccc;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.ListeLivresController">
-    <children>
-        <VBox alignment="CENTER" layoutX="4.0" layoutY="7.333333333333333" prefHeight="464.0" prefWidth="591.0" spacing="10" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
-            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="LISTE DES LIVRES" textFill="#f5c70f">
-                <VBox.margin>
-                    <Insets bottom="20.0" top="5.0" />
-                </VBox.margin>
-                <font>
-                    <Font name="System Bold" size="19.0" />
-                </font>
-            </Label>
-            <TableView fx:id="tableLivres" layoutX="20" layoutY="20" prefHeight="413.0" prefWidth="589.0" AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.topAnchor="10">
+    <AnchorPane prefHeight="486.0" prefWidth="600.0" style="-fx-background-color: #554ccc;"
+                xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+                fx:controller="com.example.libraryapp.controllers.ListeLivresController">
+        <children>
+            <VBox alignment="CENTER" layoutX="4.0" layoutY="7.35" prefHeight="464.0" prefWidth="591.0"
+                  spacing="10" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="LISTE DES LIVRES" textFill="#f5c70f">
+                    <VBox.margin>
+                        <Insets bottom="20.0" top="5.0"/>
+                    </VBox.margin>
+                    <font>
+                        <Font name="System Bold" size="19.0"/>
+                    </font>
+                </Label>
+            <TableView fx:id="tableLivres" layoutX="20" layoutY="20" prefHeight="413.0" prefWidth="589.0"
+                       AnchorPane.bottomAnchor="10" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10"
+                       AnchorPane.topAnchor="10">
                 <columns>
-                    <TableColumn fx:id="colTitre" prefWidth="150" text="Titre" />
-                    <TableColumn fx:id="colAuteur" prefWidth="100" text="Auteur" />
-                    <TableColumn fx:id="colAnnee" prefWidth="70" text="Année" />
-                    <TableColumn fx:id="colIsbn" prefWidth="100" text="ISBN" />
-                    <TableColumn fx:id="colType" prefWidth="100" text="Type" />
+                    <TableColumn fx:id="colTitre" prefWidth="150" text="Titre"/>
+                    <TableColumn fx:id="colAuteur" prefWidth="100" text="Auteur"/>
+                    <TableColumn fx:id="colAnnee" prefWidth="70" text="Année"/>
+                    <TableColumn fx:id="colIsbn" prefWidth="100" text="ISBN"/>
+                    <TableColumn fx:id="colType" prefWidth="100" text="Type"/>
                 </columns>
             </TableView>
-            <Button onAction="#handleReturn" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: red; -fx-text-fill: white;" text="Retourner" textFill="#191b19">
+
+            <Button onAction="#handleReturn" prefHeight="25.0" prefWidth="130.0"
+                    style="-fx-background-color: red; -fx-text-fill: white;" text="Retourner" textFill="#191b19">
             </Button>
         </VBox>
     </children>

@@ -1,14 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+            fx:controller="com.example.libraryapp.controllers.MenuBiblioController"
+            prefHeight="400.0" prefWidth="600.0"
+            style="-fx-background-color: #554ccc;">
+    <children>
+        <VBox alignment="CENTER" prefHeight="368.0" prefWidth="560.0" spacing="10"
+              style="-fx-background-color: #554ccc;" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20"
+              AnchorPane.topAnchor="40.0">
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="BIENVENU DANS LIBRARY-APP"
+                   textFill="#f5c70f">
+                <VBox.margin>
+                    <Insets bottom="20.0" top="5.0"/>
+                </VBox.margin>
+                <font>
+                    <Font name="System Bold" size="19.0"/>
+                </font>
+            </Label>
 
+            <Button text="Ajouter un livre" layoutX="100" layoutY="70" prefWidth="200" onAction="#ajouterLivre" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Button text="Supprimer un livre" layoutX="100" layoutY="110" prefWidth="200" onAction="#supprimerLivre" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Button text="Enregistrer un emprunt" layoutX="100" layoutY="150" prefWidth="200"
+                    onAction="#enregistrerEmprunt" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Button text="Enregistrer un retour" layoutX="100" layoutY="190" prefWidth="200"
+                    onAction="#enregistrerRetour" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Button text="Voir livres disponibles" layoutX="100" layoutY="230" prefWidth="200"
+                    onAction="#voirLivresDisponibles" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Button text="Voir livres empruntés" layoutX="100" layoutY="270" prefWidth="200"
+                    onAction="#voirLivresEmpruntes" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Button text="Enregistrer un lecteur" layoutX="100" layoutY="270" prefWidth="200"
+                    onAction="#ajouterUtilisateur" style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+            <Button text="Déconnexion" layoutX="100" layoutY="310" prefWidth="200" onAction="#deconnexion"
+                    style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+        </VBox>
+    </children>
 </AnchorPane>

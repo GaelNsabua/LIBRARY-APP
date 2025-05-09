@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<?import javafx.scene.control.ComboBox?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #554ccc;"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.libraryapp.controllers.AjouterUtilisateurController">
+    <children>
+        <VBox alignment="CENTER" prefHeight="366.0" prefWidth="560.0" spacing="10" AnchorPane.leftAnchor="20"
+              AnchorPane.rightAnchor="20" AnchorPane.topAnchor="20">
+            <Label text="Formulaire d'enregistrement utilisateur" textFill="#efdd36">
+                <font>
+                    <Font name="System Bold" size="19.0"/>
+                </font>
+            </Label>
+            <TextField fx:id="nomField" promptText="Nom"/>
+            <TextField fx:id="emailField" promptText="Email"/>
+            <PasswordField fx:id="mdpField" promptText="Mot de passe"/>
+            <ComboBox fx:id="role" prefWidth="300" promptText="Sélectionner un role" />
+            <HBox prefHeight="25.0" prefWidth="317.0">
+                <children>
+                    <Button onAction="#handleReturn" prefHeight="25.0" prefWidth="130.0"
+                            style="-fx-background-color: red; -fx-text-fill: white;" text="Retourner" textFill="#191b19">
+                    </Button>
+                    <Button layoutX="10.0" layoutY="10.0" onAction="#handleInscription" prefHeight="25.0"
+                            prefWidth="130.0" style="-fx-background-color: #5bd211; -fx-text-fill: white;"
+                            text="Enregistrer" textFill="#191b19">
+                        <HBox.margin>
+                            <Insets left="20.0"/>
+                        </HBox.margin>
+                    </Button>
+                </children>
+                <VBox.margin>
+                    <Insets top="10.0"/>
+                </VBox.margin>
+            </HBox>
+            <padding>
+                <Insets left="100.0" right="100.0"/>
+            </padding>
+        </VBox>
+    </children>
 </AnchorPane>

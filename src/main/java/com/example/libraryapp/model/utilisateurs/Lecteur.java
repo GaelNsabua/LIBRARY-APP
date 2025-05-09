@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Lecteur extends Utilisateur {
-    public Lecteur(int id, String nom, String email, String motDePasse) {
-        super(id, nom, email, motDePasse);
+    public Lecteur(int id, String nom, String email, String motDePasse, String role) {
+        super(id, nom, email, motDePasse, role);
     }
 
     @Override
@@ -23,17 +23,16 @@ public class Lecteur extends Utilisateur {
         if (livres.isEmpty()) {
             ViewLoader.chargerVue("menu-lecteur.fxml", "Menu Lecteur");
         } else {
-            ViewLoader.chargerListeLivre(livres);
+            ViewLoader.chargerListeLivre(livres, "Liste des livres disponibles", "liste-livres-view.fxml");
         }
     }
 
-    private void consulterCatalogue() {
+    public static void consulterCatalogue() {
         List<Livre> livres = LivreDao.getAllLivres();
         if (livres.isEmpty()) {
-            System.out.println("Aucun livre enregistré.");
+            ViewLoader.chargerVue("menu-lecteur.fxml", "Menu Lecteur");
         } else {
-            System.out.println("Catalogue complet :");
-            livres.forEach(Livre::afficherDetails);
+            ViewLoader.chargerListeLivre(livres, "Liste des livres disponibles", "liste-livres-view.fxml");
         }
     }
 

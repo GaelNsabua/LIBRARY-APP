@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #554ccc;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.SaveEmpruntController">
+    <children>
+        <VBox alignment="CENTER" layoutX="120.0" prefHeight="319.0" prefWidth="363.0" spacing="15.0" AnchorPane.leftAnchor="120.0" AnchorPane.rightAnchor="117.0" AnchorPane.topAnchor="30.0">
+            <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="Enregistrer un Emprunt" textFill="#f8e10d" />
 
+            <ComboBox fx:id="comboLecteurs" prefWidth="300" promptText="Sélectionner un lecteur" />
+            <ComboBox fx:id="comboLivres" prefWidth="300" promptText="Sélectionner un livre disponible" />
+
+            <HBox prefHeight="25.0" prefWidth="305.0">
+                <children>
+                    <Button onAction="#handleReturn" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: red; -fx-text-fill: white;" text="Retour" textFill="#191b19">
+                    </Button>
+                    <Button layoutX="10.0" layoutY="10.0" onAction="#handleEnregistrerEmprunt" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #5bd211; -fx-text-fill: white;" text="Valider" textFill="#191b19">
+                        <HBox.margin>
+                            <Insets left="20.0" />
+                        </HBox.margin>
+                    </Button>
+                </children>
+                <VBox.margin>
+                    <Insets left="30.0" top="10.0" />
+                </VBox.margin>
+            </HBox>
+        </VBox>
+    </children>
 </AnchorPane>

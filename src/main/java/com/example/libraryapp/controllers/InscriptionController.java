@@ -18,32 +18,39 @@ public class InscriptionController {
     private PasswordField mdpField;
 
     @FXML
-    private Label messageLabel;
-
-    @FXML
     public void handleInscription() {
         String nom = nomField.getText().trim();
         String email = emailField.getText().trim();
         String mdp = mdpField.getText();
 
         if (nom.isEmpty() || email.isEmpty() || mdp.isEmpty()) {
-            messageLabel.setText("Veuillez remplir tous les champs.");
+            afficherAlerte("Erreur", "Veuillez remplir tous les champs..", Alert.AlertType.ERROR);
             return;
         }
 
         UtilisateurDao.ajouterUtilisateur(nom, email, mdp, "lecteur");
-        messageLabel.setText("Inscription réussie !");
+
         nomField.clear();
         emailField.clear();
         mdpField.clear();
+
+        afficherAlerte("Succès", "Inscription réussie.", Alert.AlertType.CONFIRMATION);
 
         // Redirection vers l'écran de connexion
         ViewLoader.chargerVue("connexion.fxml", "Connexion à la bibliothèque");
     }
 
     @FXML
-    public void handleReturn(){
+    public void handleReturn() {
         // Redirection vers l'écran d'acceuil
         ViewLoader.chargerVue("acceuil.fxml", "Library App");
+    }
+
+    private void afficherAlerte(String titre, String message, Alert.AlertType type) {
+        Alert alert = new Alert(type);
+        alert.setTitle(titre);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 }

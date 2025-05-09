@@ -20,13 +20,18 @@ public class ConnexionController {
 
         Utilisateur user = Authentification.seConnecter(email, mdp);
         if (user != null) {
-            messageLabel.setText("Bienvenue " + user.getNom());
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Succès");
+            alert.setHeaderText(null);
+            alert.setContentText("Bienvenue " + user.getNom());
+            alert.showAndWait();
 
             EmpruntDao.verifierEtSanctionnerRetards();
 
             user.afficherMenu(); // à adapter en interface graphique
         } else {
-            messageLabel.setText("Email ou mot de passe incorrect.");
+            handleError("Email ou mot de passe incorrect.");
         }
     }
 
@@ -35,4 +40,14 @@ public class ConnexionController {
         // Redirection vers l'écran d'acceuil
         ViewLoader.chargerVue("acceuil.fxml", "Library App");
     }
+
+    private void handleError(String message){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Erreur");
+        alert.setHeaderText("Erreur de saisie");
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
 }
+
+

@@ -1,5 +1,6 @@
 package com.example.libraryapp.controllers;
 
+import com.example.libraryapp.dao.LivreDao;
 import com.example.libraryapp.model.livre.Livre;
 import com.example.libraryapp.services.ViewLoader;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -36,6 +37,14 @@ public class ListeLivresController {
         colType.setCellValueFactory(cellData -> new javafx.beans.property.SimpleStringProperty(cellData.getValue().getType()));
 
         tableLivres.setItems(FXCollections.observableArrayList(livres));
+    }
+
+    private void afficherAlerte(String message) {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Alerte");
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     @FXML

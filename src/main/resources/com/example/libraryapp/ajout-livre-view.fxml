@@ -1,14 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #554ccc;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.AjouterLivreController">
+    <children>
+        <VBox alignment="CENTER" layoutX="137.35" prefHeight="366.0" prefWidth="309.0" spacing="10.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="20">
+        <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="AJOUTER UN LIVRE" textFill="#f5c70f">
+            <VBox.margin>
+                <Insets bottom="20.0" top="5.0" />
+            </VBox.margin>
+            <font>
+                <Font name="System Bold" size="19.0" />
+            </font>
+        </Label>
+            <TextField fx:id="fieldTitre" layoutX="150" layoutY="65" prefHeight="33.0" prefWidth="320.0" promptText="Titre" />
+            <TextField fx:id="fieldAuteur" layoutX="150" layoutY="105" prefHeight="31.0" prefWidth="320.0" promptText="Auteur" />
+            <TextField fx:id="fieldAnnee" layoutX="150" layoutY="145" prefHeight="32.0" prefWidth="320.0" promptText="Année publication" />
+            <TextField fx:id="fieldIsbn" layoutX="150" layoutY="185" prefHeight="30.0" prefWidth="320.0" promptText="ISBN :" />
 
+            <HBox prefHeight="25.0" prefWidth="317.0">
+                <children>
+                    <Button onAction="#handleReturn" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: red; -fx-text-fill: white;" text="Annuler" textFill="#191b19">
+                    </Button>
+                    <Button layoutX="10.0" layoutY="10.0" onAction="#enregistrerLivre" prefHeight="25.0" prefWidth="130.0" style="-fx-background-color: #5bd211; -fx-text-fill: white;" text="Ajouter" textFill="#191b19">
+                        <HBox.margin>
+                            <Insets left="20.0" />
+                        </HBox.margin>
+                    </Button>
+                </children>
+                <VBox.margin>
+                    <Insets top="10.0" />
+                </VBox.margin>
+            <padding>
+               <Insets left="10.0" />
+            </padding>
+            </HBox>
+
+        </VBox>
+    </children>
 </AnchorPane>

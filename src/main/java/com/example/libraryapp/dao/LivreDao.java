@@ -29,6 +29,43 @@ public class LivreDao {
         return livres;
     }
 
+    public static List<Livre> getLivresEmpruntes() {
+        List<Livre> livres = new ArrayList<>();
+        String sql = "SELECT * FROM livres WHERE disponible = false";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()) {
+                // à adapter selon le type de Livre
+                livres.add(new LivreSimple(rs.getInt("id"), rs.getString("titre"),
+                        rs.getString("auteur"), rs.getInt("annee_publication"),
+                        rs.getString("isbn"), true));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return livres;
+    }
+
+    public static Livre getLivreById(int id) {
+        String sql = "SELECT * FROM livres WHERE id = ?";
+        Livre livre = null;
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                livre = new LivreSimple(rs.getInt("id"), rs.getString("titre"),
+                        rs.getString("auteur"), rs.getInt("annee_publication"),
+                        rs.getString("isbn"), rs.getBoolean("disponible"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return livre;
+    }
+
     public static List<Livre> getAllLivres() {
         List<Livre> livres = new ArrayList<>();
         String sql = "SELECT * FROM livres";
