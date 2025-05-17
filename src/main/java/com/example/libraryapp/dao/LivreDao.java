@@ -21,7 +21,7 @@ public class LivreDao {
                 // à adapter selon le type de Livre
                 livres.add(new LivreSimple(rs.getInt("id"), rs.getString("titre"),
                         rs.getString("auteur"), rs.getInt("annee_publication"),
-                        rs.getString("isbn"), true));
+                        rs.getString("isbn"), rs.getString("type"), true));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -38,7 +38,7 @@ public class LivreDao {
             while (rs.next()) {
                 // à adapter selon le type de Livre
                 livres.add(new LivreSimple(rs.getInt("id"), rs.getString("titre"),
-                        rs.getString("auteur"), rs.getInt("annee_publication"),
+                        rs.getString("auteur"), rs.getInt("annee_publication"), rs.getString("type"),
                         rs.getString("isbn"), true));
             }
         } catch (SQLException e) {
@@ -58,7 +58,7 @@ public class LivreDao {
             while (rs.next()) {
                 livre = new LivreSimple(rs.getInt("id"), rs.getString("titre"),
                         rs.getString("auteur"), rs.getInt("annee_publication"),
-                        rs.getString("isbn"), rs.getBoolean("disponible"));
+                        rs.getString("isbn"), rs.getString("type"), rs.getBoolean("disponible"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,7 +75,7 @@ public class LivreDao {
             while (rs.next()) {
                 livres.add(new LivreSimple(rs.getInt("id"), rs.getString("titre"),
                         rs.getString("auteur"), rs.getInt("annee_publication"),
-                        rs.getString("isbn"), rs.getBoolean("disponible")));
+                        rs.getString("isbn"), rs.getString("type"), rs.getBoolean("disponible")));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -84,15 +84,15 @@ public class LivreDao {
     }
 
 
-    public static void ajouterLivre(Livre l) {
+    public static void ajouterLivre(String titre, String auteur, int annee_publication, String isbn, String type) {
         String sql = "INSERT INTO livres (titre, auteur, annee_publication, isbn, type, disponible) VALUES (?, ?, ?, ?, ?, ?)";
         try (Connection conn = DBConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(sql)) {
-            ps.setString(1, l.getTitre());
-            ps.setString(2, l.getAuteur());
-            ps.setInt(3, l.getAnneePublication());
-            ps.setString(4, l.getIsbn());
-            ps.setString(5, l.getClass().getSimpleName().toUpperCase());
+            ps.setString(1, titre);
+            ps.setString(2, auteur);
+            ps.setInt(3, annee_publication);
+            ps.setString(4, isbn);
+            ps.setString(5, type);
             ps.setBoolean(6, true);
             ps.executeUpdate();
         } catch (SQLException e) {
@@ -114,8 +114,8 @@ public class LivreDao {
 
     // Classe simplifiée pour test
     static class LivreSimple extends Livre {
-        public LivreSimple(int id, String titre, String auteur, int annee, String isbn, boolean dispo) {
-            super(id, titre, auteur, annee, isbn, dispo);
+        public LivreSimple(int id, String titre, String auteur, int annee, String isbn, String type, boolean dispo) {
+            super(id, titre, auteur, annee, isbn, type, dispo);
         }
         @Override
         public void afficherDetails() {

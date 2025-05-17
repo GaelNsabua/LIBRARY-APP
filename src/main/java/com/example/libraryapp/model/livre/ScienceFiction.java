@@ -4,7 +4,7 @@ public class ScienceFiction extends Livre {
     private String univers;
 
     public ScienceFiction(int id, String titre, String auteur, int annee, String isbn, boolean dispo, String univers) {
-        super(id, titre, auteur, annee, isbn, dispo);
+        super(id, titre, auteur, annee, isbn, "science_fiction", dispo);
         this.univers = univers;
     }
 

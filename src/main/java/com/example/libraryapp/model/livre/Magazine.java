@@ -5,7 +5,7 @@ public class Magazine extends Livre {
     private String moisPublication;
 
     public Magazine(int id, String titre, String auteur, int annee, String isbn, boolean dispo, int numero, String mois) {
-        super(id, titre, auteur, annee, isbn, dispo);
+        super(id, titre, auteur, annee, isbn, "magazine", dispo);
         this.numero = numero;
         this.moisPublication = mois;
     }

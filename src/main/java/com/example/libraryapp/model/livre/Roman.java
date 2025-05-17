@@ -5,7 +5,7 @@ public class Roman extends Livre {
     private int nombrePages;
 
     public Roman(int id, String titre, String auteur, int annee, String isbn, boolean dispo, String genre, int pages) {
-        super(id, titre, auteur, annee, isbn, dispo);
+        super(id, titre, auteur, annee, isbn, "roman", dispo);
         this.genre = genre;
         this.nombrePages = pages;
     }

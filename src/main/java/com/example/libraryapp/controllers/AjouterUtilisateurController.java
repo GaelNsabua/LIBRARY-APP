@@ -43,12 +43,12 @@ public class AjouterUtilisateurController {
         String UserRole = role.getValue();
 
         if (nom.isEmpty() || email.isEmpty() || mdp.isEmpty() || UserRole == null) {
-            afficherAlerte("Erreur", "Veuillez remplir tous les champs.", Alert.AlertType.CONFIRMATION);
+            afficherAlerte("Erreur", "Veuillez remplir tous les champs.", Alert.AlertType.ERROR);
             return;
         }
 
         UtilisateurDao.ajouterUtilisateur(nom, email, mdp, UserRole);
-        afficherAlerte("Succès", "Inscription réussie.", Alert.AlertType.ERROR);
+        afficherAlerte("Succès", "Inscription réussie.", Alert.AlertType.CONFIRMATION);
         nomField.clear();
         emailField.clear();
         mdpField.clear();

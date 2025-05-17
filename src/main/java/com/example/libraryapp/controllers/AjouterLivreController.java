@@ -6,9 +6,14 @@ import com.example.libraryapp.model.livre.LivreDAOHelper;
 import com.example.libraryapp.model.utilisateurs.Bibliothecaire;
 import com.example.libraryapp.model.utilisateurs.Lecteur;
 import com.example.libraryapp.services.ViewLoader;
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class AjouterLivreController {
 
@@ -22,15 +27,30 @@ public class AjouterLivreController {
     private TextField fieldIsbn;
 
     @FXML
+    private ComboBox<String> type;
+
+    @FXML
+    public void initialize() {
+        // Charger les roles utilisateur
+        List<String> types = new ArrayList<>();
+        types.add("roman");
+        types.add("biographie");
+        types.add("magazine");
+        types.add("sience-fiction");
+        type.setItems(FXCollections.observableArrayList(types));
+    }
+
+
+    @FXML
     private void enregistrerLivre() {
         try {
             String titre = fieldTitre.getText();
             String auteur = fieldAuteur.getText();
             int annee = Integer.parseInt(fieldAnnee.getText());
             String isbn = fieldIsbn.getText();
+            String typo = type.getValue().toUpperCase();
 
-            Livre livre = LivreDAOHelper.createRomanTemp(titre, auteur, annee, isbn);
-            LivreDao.ajouterLivre(livre);
+            LivreDao.ajouterLivre(titre, auteur, annee, isbn, typo);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succès");

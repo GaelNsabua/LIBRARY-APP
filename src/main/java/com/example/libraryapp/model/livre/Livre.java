@@ -6,15 +6,16 @@ public abstract class Livre {
     protected String auteur;
     protected int anneePublication;
     protected String isbn;
-    protected String type = "Roman";
+    protected String type;
     protected boolean disponible;
 
-    public Livre(int id, String titre, String auteur, int anneePublication, String isbn, boolean disponible) {
+    public Livre(int id, String titre, String auteur, int anneePublication, String isbn, String type, boolean disponible) {
         this.id = id;
         this.titre = titre;
         this.auteur = auteur;
         this.anneePublication = anneePublication;
         this.isbn = isbn;
+        this.type = type;
         this.disponible = disponible;
     }
 

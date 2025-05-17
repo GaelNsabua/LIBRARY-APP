@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.ComboBox?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #554ccc;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.libraryapp.controllers.AjouterLivreController">
     <children>
         <VBox alignment="CENTER" layoutX="137.35" prefHeight="366.0" prefWidth="309.0" spacing="10.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="20">
@@ -24,6 +25,7 @@
             <TextField fx:id="fieldAuteur" layoutX="150" layoutY="105" prefHeight="31.0" prefWidth="320.0" promptText="Auteur" />
             <TextField fx:id="fieldAnnee" layoutX="150" layoutY="145" prefHeight="32.0" prefWidth="320.0" promptText="Année publication" />
             <TextField fx:id="fieldIsbn" layoutX="150" layoutY="185" prefHeight="30.0" prefWidth="320.0" promptText="ISBN :" />
+            <ComboBox fx:id="type" prefWidth="300" promptText="Sélectionner un type" />
 
             <HBox prefHeight="25.0" prefWidth="317.0">
                 <children>

@@ -4,7 +4,7 @@ public class Biographie extends Livre {
     private String sujet;
 
     public Biographie(int id, String titre, String auteur, int annee, String isbn, boolean dispo, String sujet) {
-        super(id, titre, auteur, annee, isbn, dispo);
+        super(id, titre, auteur, annee, isbn, "biographie", dispo);
         this.sujet = sujet;
     }
 
